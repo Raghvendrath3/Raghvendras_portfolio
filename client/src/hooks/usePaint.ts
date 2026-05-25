@@ -96,14 +96,16 @@ export const usePaint = (canvasRef: React.RefObject<HTMLCanvasElement | null>) =
   );
 
   const handleMouseDown = useCallback(
-    (e: React.MouseEvent<HTMLCanvasElement>) => {
+    (e: React.MouseEvent<HTMLCanvasElement> | MouseEvent) => {
       const canvas = canvasRef.current;
       const ctx = getContext();
       if (!canvas || !ctx) return;
 
       const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const clientX = 'clientX' in e ? e.clientX : 0;
+      const clientY = 'clientY' in e ? e.clientY : 0;
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
 
       isDrawing.current = true;
       startX.current = x;
@@ -124,7 +126,7 @@ export const usePaint = (canvasRef: React.RefObject<HTMLCanvasElement | null>) =
   );
 
   const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLCanvasElement>) => {
+    (e: React.MouseEvent<HTMLCanvasElement> | MouseEvent) => {
       if (!isDrawing.current) return;
 
       const canvas = canvasRef.current;
@@ -132,8 +134,10 @@ export const usePaint = (canvasRef: React.RefObject<HTMLCanvasElement | null>) =
       if (!canvas || !ctx) return;
 
       const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const clientX = 'clientX' in e ? e.clientX : 0;
+      const clientY = 'clientY' in e ? e.clientY : 0;
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
 
       if (tool === 'pen' || tool === 'eraser') {
         const strokeColor = tool === 'eraser' ? '#ffffff' : color;
@@ -150,7 +154,7 @@ export const usePaint = (canvasRef: React.RefObject<HTMLCanvasElement | null>) =
   );
 
   const handleMouseUp = useCallback(
-    (e: React.MouseEvent<HTMLCanvasElement>) => {
+    (e: React.MouseEvent<HTMLCanvasElement> | MouseEvent) => {
       if (!isDrawing.current) return;
 
       const canvas = canvasRef.current;
@@ -158,8 +162,10 @@ export const usePaint = (canvasRef: React.RefObject<HTMLCanvasElement | null>) =
       if (!canvas || !ctx) return;
 
       const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const clientX = 'clientX' in e ? e.clientX : 0;
+      const clientY = 'clientY' in e ? e.clientY : 0;
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
 
       if (tool === 'line' && snapshotData.current) {
         // Draw final line

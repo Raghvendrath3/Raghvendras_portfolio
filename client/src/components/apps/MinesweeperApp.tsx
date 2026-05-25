@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { Win98Window } from '../ui/Win98Window';
 import { Win98Button } from '../ui/Win98Button';
 import { useMinesweeper } from '../../hooks/useMinesweeper';
+import { useWindowStore } from '../../store/useWindowStore';
 
 // Memoized cell component to prevent unnecessary re-renders
 const MinesweeperCell = memo(
@@ -78,6 +79,9 @@ const MinesweeperCell = memo(
 MinesweeperCell.displayName = 'MinesweeperCell';
 
 export const MinesweeperApp: React.FC = () => {
+  const minesweeperWindow = useWindowStore((state) => state.windows['minesweeper']);
+  if (!minesweeperWindow?.isOpen) return null;
+
   const {
     board,
     revealed,

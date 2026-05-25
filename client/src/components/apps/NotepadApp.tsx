@@ -2,9 +2,11 @@ import React from 'react';
 import { Win98Window } from '../ui/Win98Window';
 import { Menubar, MenuItem } from '../ui/Menubar';
 import { useNotepad } from '../../hooks/useNotepad';
+import { useWindowStore } from '../../store/useWindowStore';
 
 export const NotepadApp: React.FC = () => {
   const { content, setContent, clearContent } = useNotepad();
+  const notepadWindow = useWindowStore((state) => state.windows['notepad']);
 
   const menubarContent = (
     <Menubar>
@@ -14,6 +16,8 @@ export const NotepadApp: React.FC = () => {
       <MenuItem label="Help" />
     </Menubar>
   );
+
+  if (!notepadWindow?.isOpen) return null;
 
   return (
     <Win98Window

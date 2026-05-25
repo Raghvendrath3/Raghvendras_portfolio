@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Win98Window } from '../ui/Win98Window';
 import { Win98Button } from '../ui/Win98Button';
 import { usePaint } from '../../hooks/usePaint';
+import { useWindowStore } from '../../store/useWindowStore';
 
 const PALETTE_COLORS = [
   // Row 1
@@ -13,6 +14,9 @@ const PALETTE_COLORS = [
 const BRUSH_SIZES = [1, 3, 5, 8];
 
 export const PaintApp: React.FC = () => {
+  const paintWindow = useWindowStore((state) => state.windows['paint']);
+  if (!paintWindow?.isOpen) return null;
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { tool, setTool, color, setColor, brushSize, setBrushSize, handleMouseDown, handleMouseMove, handleMouseUp } = usePaint(canvasRef);
   const [isActiveColor, setIsActiveColor] = useState<string | null>(null);

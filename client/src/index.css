@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+@font-face {
+  font-family: 'MS Sans Serif';
+  src: local('MS Sans Serif'), local('MS_Sans_Serif'), local('Arial');
+}
+
+@font-face {
+  font-family: 'Pixelated MS Sans Serif';
+  src: local('Pixelated MS Sans Serif'), local('MS Sans Serif'), local('Arial');
+}
+
+:root {
+  --win-bg: #008080;
+  --win-gray: #c0c0c0;
+  --win-dark: #808080;
+  --win-darker: #404040;
+  --win-black: #000000;
+  --win-white: #ffffff;
+  --win-blue: #000080;
+  --border-light: #ffffff;
+  --border-dark: #808080;
+  --border-darker: #404040;
+  --highlight: #000080;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background: var(--win-bg);
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.03) 1px, rgba(0,0,0,0.03) 2px),
+    repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(0,0,0,0.03) 1px, rgba(0,0,0,0.03) 2px);
+  min-height: 100vh;
+  font-family: 'MS Sans Serif', 'Pixelated MS Sans Serif', Arial, sans-serif;
+  font-size: 11px;
+  overflow: hidden;
+  position: relative;
+  color: #000;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 16px; height: 16px; }
+::-webkit-scrollbar-track { background: #c0c0c0; }
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-darker) var(--border-darker) var(--border-light);
+}
+::-webkit-scrollbar-button {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-darker) var(--border-darker) var(--border-light);
+  height: 16px; width: 16px;
+}
+
+/* Custom Win98 3D Borders helper */
+.win-border-inset {
+  border: 2px solid;
+  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
+}
+.win-border-outset {
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-darker) var(--border-darker) var(--border-light);
+}
+.win-border-outset-active:active {
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}

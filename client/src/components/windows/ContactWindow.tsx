@@ -9,25 +9,21 @@ export const ContactWindow: React.FC = () => {
     {
       label: 'Email',
       value: 'raghvendrath3@gmail.com',
-      icon: '📧',
       onClick: () => window.open('mailto:raghvendrath3@gmail.com')
     },
     {
       label: 'GitHub',
       value: 'github.com/Raghvendrath3',
-      icon: '🐙',
       onClick: () => window.open('https://github.com/Raghvendrath3', '_blank')
     },
     {
       label: 'LinkedIn',
       value: 'linkedin.com/in/raghvendrath3',
-      icon: '💼',
       onClick: () => window.open('https://linkedin.com/in/raghvendrath3', '_blank')
     },
     {
       label: 'Phone',
       value: '+91 97702 77143',
-      icon: '📞',
       onClick: () => window.open('tel:+919770277143')
     }
   ];
@@ -40,14 +36,11 @@ export const ContactWindow: React.FC = () => {
           <div
             key={item.label}
             onClick={item.onClick}
-            className="flex items-center gap-3 p-[10px] cursor-pointer hover:bg-win-blue hover:text-white group select-none"
+            className="p-[10px] cursor-pointer hover:bg-win-blue hover:text-white group select-none transition-colors"
           >
-            <span className="text-lg select-none">{item.icon}</span>
-            <div className="flex-1 min-w-0">
-              <div className="font-bold text-xs select-none">{item.label}</div>
-              <div className="text-[10px] text-gray-500 group-hover:text-blue-200 truncate select-none">
-                {item.value}
-              </div>
+            <div className="font-bold text-[11px] select-none">{item.label}</div>
+            <div className="text-[10px] text-gray-600 group-hover:text-[#cccccc] select-none">
+              {item.value}
             </div>
           </div>
         ))}
@@ -57,14 +50,14 @@ export const ContactWindow: React.FC = () => {
       <div className="p-3 border-t border-win-gray flex justify-center bg-slate-100 select-none">
         <Win98Button
           onClick={() => openWindow('contact-form')}
-          className="w-full flex items-center justify-center gap-1 select-none"
+          className="select-none"
         >
-          ✉️ Send a Message (Contact Form)
+          Send Message
         </Win98Button>
       </div>
 
       {/* Footer message */}
-      <div className="p-2 text-[10px] text-gray-500 text-center border-t border-gray-200 select-none">
+      <div className="p-2 text-[10px] text-gray-600 text-center border-t border-win-gray select-none">
         Click any item to open · Available for full-time / internship / contract
       </div>
     </div>

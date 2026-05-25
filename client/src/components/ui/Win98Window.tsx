@@ -26,7 +26,7 @@ export const Win98Window: React.FC<Win98WindowProps> = ({
   statusbarContent,
   hideResize = false
 }) => {
-  const { windows, activeWindowId, bringToFront } = useWindowStore();
+  const { windows, bringToFront } = useWindowStore();
   const winState = windows[id];
 
   const windowRef = useRef<HTMLDivElement | null>(null);

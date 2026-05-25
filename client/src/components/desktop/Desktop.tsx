@@ -136,19 +136,13 @@ export const Desktop: React.FC = () => {
         </Win98Window>
 
         {/* Notepad App */}
-        <Win98Window id="notepad" title="Untitled — Notepad" icon="📝">
-          <NotepadApp />
-        </Win98Window>
+        <NotepadApp />
 
         {/* Minesweeper App */}
-        <Win98Window id="minesweeper" title="Minesweeper" icon="💣" hideResize>
-          <MinesweeperApp />
-        </Win98Window>
+        <MinesweeperApp />
 
         {/* Paint App */}
-        <Win98Window id="paint" title="Untitled — Paint" icon="🎨" hideResize>
-          <PaintApp />
-        </Win98Window>
+        <PaintApp />
 
         {/* My Computer Window */}
         <Win98Window id="mycomputer" title="My Computer" icon="🖥️">

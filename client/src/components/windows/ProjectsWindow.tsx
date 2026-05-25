@@ -1,16 +1,22 @@
 import React from 'react';
+import { Win98Window } from '../ui/Win98Window';
 
 export const ProjectsWindow: React.FC = () => {
   return (
-    <div className="p-3 text-[11px] font-win text-win-black space-y-4 select-text">
-      {/* Project 1 — RentalHub */}
-      <div className="border-2 border-t-border-dark border-l-border-dark border-r-white border-b-white bg-slate-100 flex flex-col select-text">
-        {/* Navy Header */}
-        <div className="bg-win-blue text-white px-2 py-1 font-bold flex items-center gap-1 select-none">
-          <span>🏠</span>
-          <span>RentalHub — Full-Stack Rental Listing Platform</span>
-          <span className="ml-auto font-normal text-[10px]">2026</span>
-        </div>
+    <Win98Window
+      id="projects"
+      title="Projects"
+      showMenubar={false}
+      statusbarContent={['2 object(s)', 'Full-Stack · Backend']}
+    >
+      <div className="p-3 text-[11px] font-win text-win-black space-y-4 select-text">
+        {/* Project 1 — RentalHub */}
+        <div className="border-2 border-t-border-dark border-l-border-dark border-r-white border-b-white bg-slate-100 flex flex-col select-text">
+          {/* Navy Header */}
+          <div className="bg-win-blue text-white px-2 py-1 font-bold flex items-center gap-1 select-none">
+            <span>RentalHub — Full-Stack Rental Listing Platform</span>
+            <span className="ml-auto font-normal text-[10px]">2026</span>
+          </div>
         {/* Body */}
         <div className="p-2 space-y-2 select-text">
           <p className="italic text-gray-700 select-text">
@@ -44,7 +50,7 @@ export const ProjectsWindow: React.FC = () => {
           </ul>
           {/* Known limitations */}
           <div className="bg-yellow-50 border border-yellow-300 p-2 text-[10px] text-gray-700 select-text">
-            <strong className="select-text">⚠️ Known limitations:</strong> JWT in localStorage (should be httpOnly cookie) · Offset pagination · No DB-level RBAC
+            <strong className="select-text">Known limitations:</strong> JWT in localStorage (should be httpOnly cookie) · Offset pagination · No DB-level RBAC
           </div>
           {/* GitHub button */}
           <div className="pt-1 select-none">
@@ -54,20 +60,19 @@ export const ProjectsWindow: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-block px-3 py-1 font-win text-xs text-win-black bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white cursor-pointer hover:bg-slate-200 select-none no-underline"
             >
-              🔗 View on GitHub
+              View on GitHub
             </a>
           </div>
         </div>
       </div>
 
-      {/* Project 2 — SpendWise */}
-      <div className="border-2 border-t-border-dark border-l-border-dark border-r-white border-b-white bg-slate-100 flex flex-col select-text">
-        {/* Navy Header */}
-        <div className="bg-win-blue text-white px-2 py-1 font-bold flex items-center gap-1 select-none">
-          <span>💰</span>
-          <span>SpendWise — Personal Expense Tracker</span>
-          <span className="ml-auto font-normal text-[10px]">2025</span>
-        </div>
+        {/* Project 2 — SpendWise */}
+        <div className="border-2 border-t-border-dark border-l-border-dark border-r-white border-b-white bg-slate-100 flex flex-col select-text">
+          {/* Navy Header */}
+          <div className="bg-win-blue text-white px-2 py-1 font-bold flex items-center gap-1 select-none">
+            <span>SpendWise — Personal Expense Tracker</span>
+            <span className="ml-auto font-normal text-[10px]">2025</span>
+          </div>
         {/* Body */}
         <div className="p-2 space-y-2 select-text">
           <p className="italic text-gray-700 select-text">
@@ -107,11 +112,12 @@ export const ProjectsWindow: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-block px-3 py-1 font-win text-xs text-win-black bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white cursor-pointer hover:bg-slate-200 select-none no-underline"
             >
-              🔗 View on GitHub
+              View on GitHub
             </a>
           </div>
         </div>
       </div>
     </div>
+    </Win98Window>
   );
 };

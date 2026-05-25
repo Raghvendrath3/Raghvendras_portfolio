@@ -88,12 +88,6 @@ export const Desktop: React.FC = () => {
         onContextMenu={handleContextMenu}
         className="w-screen h-[calc(100vh-28px)] relative overflow-hidden select-none"
         style={{ background: currentWallpaper.gradient }}
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.03) 1px, rgba(0,0,0,0.03) 2px),
-            repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(0,0,0,0.03) 1px, rgba(0,0,0,0.03) 2px)
-          `
-        }}
       >
         {/* Desktop Icons */}
         {DESKTOP_ICONS.map((icon) => (
@@ -124,11 +118,6 @@ export const Desktop: React.FC = () => {
 
         {/* Skills Window */}
         <SkillsWindow />
-
-        {/* Skills Window */}
-        <Win98Window id="skills" title="Tech Stack — System Properties" icon="⚙️">
-          <SkillsWindow />
-        </Win98Window>
 
         {/* Contact Window */}
         <Win98Window id="contact" title="Contact — Send Message" icon="📧">

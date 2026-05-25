@@ -40,6 +40,7 @@ export const Titlebar: React.FC<TitlebarProps> = ({ id, title, icon }) => {
             minimizeWindow(id);
           }}
           className="w-[16px] h-[14px] leading-[4px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white flex items-center justify-center font-bold text-[9px] cursor-pointer"
+          style={{ color: isActive ? '#000000' : '#000000' }}
         >
           _
         </button>
@@ -51,8 +52,9 @@ export const Titlebar: React.FC<TitlebarProps> = ({ id, title, icon }) => {
             maximizeWindow(id);
           }}
           className="w-[16px] h-[14px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white flex items-center justify-center font-bold text-[9px] cursor-pointer"
+          style={{ color: isActive ? '#000000' : '#000000' }}
         >
-          {isMaximized ? '🗗' : '□'}
+          {isMaximized ? '▬' : '□'}
         </button>
         {/* Close */}
         <button
@@ -61,9 +63,10 @@ export const Titlebar: React.FC<TitlebarProps> = ({ id, title, icon }) => {
             e.stopPropagation();
             closeWindow(id);
           }}
-          className="w-[16px] h-[14px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white flex items-center justify-center font-bold text-[9px] cursor-pointer"
+          className="w-[16px] h-[14px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white flex items-center justify-center font-bold text-[10px] cursor-pointer"
+          style={{ color: isActive ? '#000000' : '#000000' }}
         >
-          ✕
+          ×
         </button>
       </div>
     </div>

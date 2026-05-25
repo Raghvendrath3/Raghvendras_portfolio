@@ -61,7 +61,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, isOpen, onClose 
       <div className="h-[2px] border-t border-border-dark border-b border-white my-[2px]" />
       <div
         className="px-5 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
-        onClick={() => handleItemClick('error')}
+        onClick={() => handleItemClick('display-properties')}
       >
         Display Properties
       </div>

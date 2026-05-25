@@ -10,7 +10,14 @@ export const useClock = () => {
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const ampm = hours >= 12 ? 'PM' : 'AM';
       hours = hours % 12 || 12;
-      setTime(`${hours}:${minutes} ${ampm}`);
+      
+      // Format date as MM/DD/YYYY
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const year = now.getFullYear();
+      const dateStr = `${month}/${day}/${year}`;
+      
+      setTime(`${dateStr} ${hours}:${minutes} ${ampm}`);
     };
 
     updateTime();

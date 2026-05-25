@@ -107,6 +107,15 @@ export const WINDOW_CONFIGS: Record<string, WindowConfig> = {
     defaultTop: 120,
     defaultWidth: 400,
     defaultHeight: 380
+  },
+  'display-properties': {
+    id: 'display-properties',
+    label: 'Display Properties',
+    icon: '⚙️',
+    defaultLeft: 250,
+    defaultTop: 150,
+    defaultWidth: 420,
+    defaultHeight: 380
   }
 };
 

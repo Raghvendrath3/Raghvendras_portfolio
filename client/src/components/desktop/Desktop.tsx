@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useWindowStore } from '../../store/useWindowStore';
+import { useWallpaper } from '../../hooks/useWallpaper';
 import { DESKTOP_ICONS } from '../../constants';
 import { DesktopIcon } from './DesktopIcon';
 import { Taskbar } from './Taskbar';
 import { StartMenu } from './StartMenu';
 import { ContextMenu } from './ContextMenu';
 import { BootScreen } from './BootScreen';
+import { DisplayPropertiesDialog } from './DisplayPropertiesDialog';
 import { Win98Window } from '../ui/Win98Window';
 
 import { AboutWindow } from '../windows/AboutWindow';
@@ -22,6 +24,7 @@ import { PaintApp } from '../apps/PaintApp';
 
 export const Desktop: React.FC = () => {
   const { openWindow } = useWindowStore();
+  const { currentWallpaper } = useWallpaper();
 
   const [isBooting, setIsBooting] = useState(true);
   const [isShutDown, setIsShutDown] = useState(false);
@@ -83,7 +86,8 @@ export const Desktop: React.FC = () => {
       <div
         id="desktop"
         onContextMenu={handleContextMenu}
-        className="w-screen h-[calc(100vh-28px)] relative overflow-hidden select-none bg-win-bg"
+        className="w-screen h-[calc(100vh-28px)] relative overflow-hidden select-none"
+        style={{ background: currentWallpaper.gradient }}
         style={{
           backgroundImage: `
             repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.03) 1px, rgba(0,0,0,0.03) 2px),
@@ -116,9 +120,10 @@ export const Desktop: React.FC = () => {
         </Win98Window>
 
         {/* Projects Window */}
-        <Win98Window id="projects" title="Projects — (2 objects)" icon="📁">
-          <ProjectsWindow />
-        </Win98Window>
+        <ProjectsWindow />
+
+        {/* Skills Window */}
+        <SkillsWindow />
 
         {/* Skills Window */}
         <Win98Window id="skills" title="Tech Stack — System Properties" icon="⚙️">
@@ -158,6 +163,9 @@ export const Desktop: React.FC = () => {
         <Win98Window id="contact-form" title="Send Message" icon="✉️" hideResize>
           <ContactFormWindow />
         </Win98Window>
+
+        {/* Display Properties Dialog */}
+        <DisplayPropertiesDialog />
 
         {/* Mobile Viewport Check fallback */}
         {isMobile && (

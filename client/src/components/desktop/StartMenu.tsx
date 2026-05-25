@@ -20,7 +20,8 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onShutDow
   return (
     <div
       id="start-menu"
-      className="fixed bottom-[28px] left-0 w-[200px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker shadow-[2px_2px_0px_#000] z-[99999] flex font-win text-win-black"
+      className="fixed bottom-[28px] left-0 w-[200px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker shadow-[2px_2px_0px_#000] z-[99999] flex font-win text-win-black backdrop-filter-none"
+      style={{ backgroundColor: '#c0c0c0' }}
     >
       {/* Rotated Windows 98 Sidebar */}
       <div
@@ -28,6 +29,7 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onShutDow
         style={{
           writingMode: 'vertical-rl',
           transform: 'rotate(180deg)',
+          backgroundColor: '#000080'
         }}
       >
         Windows 98
@@ -39,35 +41,35 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onShutDow
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={() => handleItemClick('about')}
         >
-          <span className="text-base select-none">👤</span>
+          <span className="w-[16px]">▶</span>
           <span>About Me</span>
         </div>
         <div
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={() => handleItemClick('projects')}
         >
-          <span className="text-base select-none">📁</span>
+          <span className="w-[16px]">▶</span>
           <span>Projects</span>
         </div>
         <div
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={() => handleItemClick('skills')}
         >
-          <span className="text-base select-none">⚙️</span>
+          <span className="w-[16px]">▶</span>
           <span>Tech Stack</span>
         </div>
         <div
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={() => handleItemClick('contact')}
         >
-          <span className="text-base select-none">📧</span>
+          <span className="w-[16px]">▶</span>
           <span>Contact</span>
         </div>
         <div
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={() => handleItemClick('resume')}
         >
-          <span className="text-base select-none">📄</span>
+          <span className="w-[16px]">▶</span>
           <span>Resume</span>
         </div>
         
@@ -77,21 +79,21 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onShutDow
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={() => handleItemClick('notepad')}
         >
-          <span className="text-base select-none">📝</span>
+          <span className="w-[16px]">▶</span>
           <span>Notepad</span>
         </div>
         <div
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={() => handleItemClick('paint')}
         >
-          <span className="text-base select-none">🎨</span>
+          <span className="w-[16px]">▶</span>
           <span>MS Paint</span>
         </div>
         <div
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={() => handleItemClick('minesweeper')}
         >
-          <span className="text-base select-none">💣</span>
+          <span className="w-[16px]">▶</span>
           <span>Minesweeper</span>
         </div>
 
@@ -101,7 +103,7 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onShutDow
           className="flex items-center gap-[10px] px-2 py-1 text-xs cursor-pointer hover:bg-win-blue hover:text-white select-none"
           onClick={onShutDown}
         >
-          <span className="text-base select-none">🔴</span>
+          <span className="w-[16px]">▶</span>
           <span>Shut Down...</span>
         </div>
       </div>

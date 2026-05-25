@@ -16,9 +16,12 @@ export const Titlebar: React.FC<TitlebarProps> = ({ id, title, icon }) => {
     <div
       className={`h-[22px] flex items-center px-1 py-[2px] gap-1 select-none cursor-grab flex-shrink-0 active:cursor-grabbing ${
         isActive
-          ? 'bg-gradient-to-r from-win-blue to-[#1084d0]'
-          : 'bg-gradient-to-r from-border-dark to-[#a0a0a0]'
+          ? 'bg-win-blue'
+          : 'bg-slate-400'
       }`}
+      style={{
+        backgroundColor: isActive ? '#000080' : '#808080'
+      }}
     >
       {icon && (
         <span className="text-[12px] pl-1 flex items-center justify-center select-none">
@@ -31,21 +34,33 @@ export const Titlebar: React.FC<TitlebarProps> = ({ id, title, icon }) => {
       <div className="win-controls flex gap-[2px] pr-[2px]">
         {/* Minimize */}
         <button
-          onClick={() => minimizeWindow(id)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            minimizeWindow(id);
+          }}
           className="w-[16px] h-[14px] leading-[4px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white flex items-center justify-center font-bold text-[9px] cursor-pointer"
         >
           _
         </button>
         {/* Maximize */}
         <button
-          onClick={() => maximizeWindow(id)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            maximizeWindow(id);
+          }}
           className="w-[16px] h-[14px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white flex items-center justify-center font-bold text-[9px] cursor-pointer"
         >
           {isMaximized ? '🗗' : '□'}
         </button>
         {/* Close */}
         <button
-          onClick={() => closeWindow(id)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeWindow(id);
+          }}
           className="w-[16px] h-[14px] bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker active:border-t-border-darker active:border-l-border-darker active:border-r-white active:border-b-white flex items-center justify-center font-bold text-[9px] cursor-pointer"
         >
           ✕

@@ -131,6 +131,7 @@ export const PaintApp: React.FC = () => {
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
             className="border-2 border-t-border-dark border-l-border-dark border-r-white border-b-white bg-white cursor-crosshair flex-1"
+            style={{ pointerEvents: 'auto', display: 'block' }}
           />
         </div>
       </div>

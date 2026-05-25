@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useWindowStore } from '../../store/useWindowStore';
 import { useDrag } from '../../hooks/useDrag';
 import { useResize } from '../../hooks/useResize';
@@ -79,14 +78,10 @@ export const Win98Window: React.FC<Win98WindowProps> = ({
   }
 
   return (
-    <AnimatePresence>
+    <>
       {!isMinimized && (
-        <motion.div
+        <div
           ref={windowRef}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.12, ease: 'easeOut' }}
           className="absolute bg-win-gray border-2 border-t-white border-l-white border-r-border-darker border-b-border-darker shadow-[2px_2px_0px_#000] flex flex-col font-win text-win-black select-none"
           style={{
             zIndex: winState.zIndex,
@@ -95,6 +90,8 @@ export const Win98Window: React.FC<Win98WindowProps> = ({
             width: isMaximized ? '100vw' : `${winState.size.width}px`,
             height: isMaximized ? 'calc(100vh - 28px)' : `${winState.size.height}px`,
             position: 'absolute',
+            opacity: 0,
+            animation: `fadeIn 0.12s ease-out forwards`
           }}
           onClick={() => bringToFront(id)}
         >
@@ -136,8 +133,8 @@ export const Win98Window: React.FC<Win98WindowProps> = ({
               }}
             />
           )}
-        </motion.div>
+        </div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
